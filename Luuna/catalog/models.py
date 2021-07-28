@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.urls import reverse  # To generate URLS by reversing URL patterns
+
 # Create your models here.
 
 class Product(models.Model):
@@ -13,3 +15,7 @@ class Product(models.Model):
     def __str__(self):
         """String for representing the Model object (in Admin site etc.)"""
         return self.name
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular product instance."""
+        return reverse('product-detail', args=[str(self.id)])
