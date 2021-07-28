@@ -1,8 +1,5 @@
 from django.db import models
-
 from django.urls import reverse  # To generate URLS by reversing URL patterns
-
-# Create your models here.
 
 class Product(models.Model):
     """Model representing a Product"""

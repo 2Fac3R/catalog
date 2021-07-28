@@ -3,11 +3,9 @@ from django.shortcuts import render
 from django.views import generic
 from .models import Product
 
-# Create your views here.
-
 def index(request):
     """View function for home page of site."""
-    # Generate counts of some of the main objects
+    # Generate number of products
     num_products = Product.objects.all().count()
 
     # Render the HTML template index.html with the data in the context variable.
