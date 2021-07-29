@@ -6,12 +6,12 @@ from .models import Product
 def index(request):
     """View function for home page of site."""
     # Generate number of products
-    num_products = Product.objects.all().count()
+    num_products = Product.objects.count()
 
     # Number of visits to this view, as counted in the session variable.
     num_visits = request.session.get('num_visits', 1)
     request.session['num_visits'] = num_visits + 1
-    
+
     # Render the HTML template index.html with the data in the context variable.
     return render(
         request,
@@ -26,6 +26,7 @@ class ProductListView(generic.ListView):
     """Generic class-based view for a list of products."""
     model = Product
     paginate_by = 10
+    ordering = ['id']
 
 
 class ProductDetailView(generic.DetailView):
