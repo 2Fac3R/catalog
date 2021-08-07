@@ -26,6 +26,11 @@
  
   <ul class="sidebar-nav">
    {% if user.is_authenticated %}
+    {% if notifications_unread %}
+        <hr />
+        You have <strong>{{ notifications_unread|length }}</strong> unread notifications.<br>
+        <hr />
+    {% endif %}
      <li>User: {{ user.get_username }}</li>
      <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
    {% else %}

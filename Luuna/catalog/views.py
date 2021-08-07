@@ -12,13 +12,20 @@ def index(request):
     num_visits = request.session.get('num_visits', 1)
     request.session['num_visits'] = num_visits + 1
 
+    # Unread notifications
+    if request.user.is_authenticated:
+        notifications_unread = request.user.notifications.unread()
+    else:
+        notifications_unread = None
+
     # Render the HTML template index.html with the data in the context variable.
     return render(
         request,
         'index.html',
         context = {
             'num_products': num_products,
-            'num_visits': num_visits
+            'num_visits': num_visits,
+            'notifications_unread': notifications_unread
         },
     )
 

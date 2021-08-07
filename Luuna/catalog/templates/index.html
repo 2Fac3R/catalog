@@ -8,6 +8,19 @@
 <li><strong>products:</strong> {{ num_products }}</li>
 </ul>
 
+<hr /> 
 <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+<hr />
+    
+{% if user.is_authenticated %}
+    <p>Unread notifications</p>
+    {% for notification in notifications_unread %}
+        ID: {{ notification.id }} <br>
+        Level: {{ notification.level }} <br>
+        Description: {{ notification.description }} <br>
+        Date: {{ notification.timestamp }} <br>
+        <br>
+    {% endfor %}
+{% endif %}
 
 {% endblock %}
