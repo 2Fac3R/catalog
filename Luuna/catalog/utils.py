@@ -1,4 +1,5 @@
 import inspect
+
 def current_user():
     """ Returns Current User """
     for frame_record in inspect.stack():
