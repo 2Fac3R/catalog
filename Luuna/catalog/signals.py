@@ -9,9 +9,9 @@ from django.utils import timezone
 
 @receiver(post_save, sender=Product)
 def notify_admins(sender, instance, **kwargs):
-    """ Signal to notify admin users about post save in Product """
+    """ Signal to notify admin users about post save in Genre """
     user = User.objects.get(id=1)
-    admins_group = User.objects.filter(groups__name='Admin')
+    admins_group = User.objects.filter(groups__name='admin')
     class_name = sender.__name__
     new_instance_name = instance.name
     notify.send(
