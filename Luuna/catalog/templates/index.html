@@ -13,12 +13,12 @@
 <hr />
     
 {% if user.is_authenticated %}
-    <p>Unread notifications</p>
+    <h2>Unread notifications</h2>
     {% for notification in notifications_unread %}
-        ID: {{ notification.id }} <br>
-        Level: {{ notification.level }} <br>
-        Description: {{ notification.description }} <br>
-        Date: {{ notification.timestamp }} <br>
+        <strong>ID:</strong> {{ notification.id }} <br>
+        <strong>Level:</strong> {{ notification.level }} <br>
+        <strong>Description:</strong> {{ notification.description }} <br>
+        <strong>Date:</strong> {{ notification.timestamp }} <br>
         <br>
     {% endfor %}
 {% endif %}
