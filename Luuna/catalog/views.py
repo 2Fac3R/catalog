@@ -1,7 +1,12 @@
 from catalog.models import Product
 from django.shortcuts import render
 from django.views import generic
+
+from rest_framework import viewsets
+
+from .serializers import ProductSerializer
 from .models import Product
+
 
 def index(request):
     """View function for home page of site."""
@@ -39,3 +44,11 @@ class ProductListView(generic.ListView):
 class ProductDetailView(generic.DetailView):
     """Generic class-based detail view for a product."""
     model = Product
+
+
+class ProductViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows products to be viewed or edited.
+    """
+    queryset = Product.objects.all().order_by('name')
+    serializer_class = ProductSerializer
