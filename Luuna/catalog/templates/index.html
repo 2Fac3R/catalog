@@ -5,15 +5,15 @@
 
 <p>The system has the following record counts:</p>
 <ul>
-<li><strong>products:</strong> {{ num_products }}</li>
+    <li><strong>products:</strong> {{ num_products }}</li>
 </ul>
 
-<hr /> 
+<hr />
 <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
 <hr />
 
 {% load auth_extras %}
-{% if user.is_authenticated %} 
+{% if user.is_authenticated %}
     {% if request.user|has_group:"admin" %}
         <h2>Unread notifications</h2>
         {% for notification in notifications_unread %}
@@ -25,4 +25,5 @@
         {% endfor %}
     {% endif %}
 {% endif %}
+
 {% endblock %}
