@@ -23,19 +23,22 @@
     <li><a href="{% url 'index' %}">Home</a></li>
     <li><a href="{% url 'products' %}">All products</a></li>
   </ul>
- 
+  
+  {% load auth_extras %} 
   <ul class="sidebar-nav">
-   {% if user.is_authenticated %}
-    {% if notifications_unread %}
-        <hr />
-        You have <strong>{{ notifications_unread|length }}</strong> unread notifications.<br>
-        <hr />
+  {% if user.is_authenticated %}
+    {% if request.user|has_group:"admin" %}
+      {% if notifications_unread %}
+          <hr />
+          You have <strong>{{ notifications_unread|length }}</strong> unread notifications.<br>
+          <hr />
+      {% endif %}
     {% endif %}
-     <li>User: {{ user.get_username }}</li>
-     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
-   {% else %}
-     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
-   {% endif %} 
+    <li>User: {{ user.get_username }}</li>
+    <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+  {% else %}
+    <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+  {% endif %} 
   </ul>
   
    {% if user.is_staff %}
