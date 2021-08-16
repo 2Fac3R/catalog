@@ -15,10 +15,13 @@ pip install -r requirements.txt
 I decided to use the following packages:
 
 * [djangorestframework](https://www.django-rest-framework.org/) It's a powerful and flexible toolkit for building Web APIs.
-* [django-notifications-hq](https://pypi.org/project/django-notifications-hq/) used for system notification.
+* [django-notifications-hq](https://pypi.org/project/django-notifications-hq/) used for notification system.
 * [drf-yasg]() Automated generation of real Swagger/OpenAPI 2.0 schemas from Django REST Framework code.
 
 You can find more details in *requirements.txt* file.
+
+TODO-LIST:
+* Currently working on user visits tracking feature.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
