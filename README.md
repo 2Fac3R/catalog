@@ -20,7 +20,7 @@ I decided to use the following packages:
 
 You can find more details in *requirements.txt* file.
 
-TODO-LIST:
+## TODO:
 * Currently working on user visits tracking feature.
 
 ## Contributing
