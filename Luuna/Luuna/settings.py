@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'catalog.apps.CatalogConfig', # /catalog/apps.py
     'notifications', # django-notifications-hq
     'rest_framework', # djangorestframework
+    'drf_yasg', # API Documentation
 ]
 
 MIDDLEWARE = [
