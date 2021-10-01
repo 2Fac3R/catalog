@@ -1,4 +1,3 @@
-from catalog.models import Product
 from django.shortcuts import render
 from django.views import generic
 
@@ -6,7 +5,7 @@ from django.contrib.auth.models import User, Group
 
 from rest_framework import viewsets, permissions
 
-from .serializers import GroupSerializer, UserSerializer, ProductSerializer 
+from .serializers import GroupSerializer, UserSerializer, ProductSerializer
 from .models import Product
 
 
@@ -29,12 +28,13 @@ def index(request):
     return render(
         request,
         'index.html',
-        context = {
+        context={
             'num_products': num_products,
             'num_visits': num_visits,
             'notifications_unread': notifications_unread
         },
     )
+
 
 class ProductListView(generic.ListView):
     """Generic class-based view for a list of products."""
@@ -56,6 +56,7 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+
 class GroupViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
@@ -63,6 +64,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all().order_by('id')
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
 
 class ProductViewSet(viewsets.ModelViewSet):
     """

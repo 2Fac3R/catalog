@@ -1,13 +1,14 @@
 from django.test import TestCase
 from catalog.models import Product
 
+
 class ProductModelTest(TestCase):
 
     @classmethod
     def setUpTestData(cls):
         """Set up non-modified objects used by all test methods."""
         Product.objects.create(
-                sku='UGG-BB-PUR-1', name='Product 1', price='10.1', brand='Brand 1')
+            sku='UGG-BB-PUR-1', name='Product 1', price='10.1', brand='Brand 1')
 
     def test_sku_label(self):
         product = Product.objects.get(id=1)

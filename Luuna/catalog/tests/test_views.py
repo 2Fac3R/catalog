@@ -3,6 +3,7 @@ from catalog.models import Product
 
 from django.urls import reverse
 
+
 class ProductListViewTest(TestCase):
 
     @classmethod
@@ -11,11 +12,11 @@ class ProductListViewTest(TestCase):
         number_of_products = 13
         for product_id in range(number_of_products):
             Product.objects.create(
-                sku='UGG-BB-PUR-{0}'.format(product_id), 
+                sku='UGG-BB-PUR-{0}'.format(product_id),
                 name='Product {0}'.format(product_id),
                 price='10.{0}'.format(product_id),
                 brand='Brand {0}'.format(product_id)
-                )
+            )
 
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/catalog/products/')

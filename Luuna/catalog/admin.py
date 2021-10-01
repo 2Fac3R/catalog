@@ -11,9 +11,12 @@ from .models import Product
 admin.site.unregister(User)
 
 # Register our own model admin, based on the default UserAdmin
+
+
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     pass
+
 
 # Register model Product
 admin.site.register(Product)

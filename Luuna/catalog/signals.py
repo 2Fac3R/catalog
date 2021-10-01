@@ -7,6 +7,7 @@ from .models import Product
 
 from .utils import current_user
 
+
 @receiver(post_save, sender=Product)
 def notify_admins(sender, instance, **kwargs):
     """ Signal to notify admin users about post save in Product """
@@ -16,5 +17,6 @@ def notify_admins(sender, instance, **kwargs):
         recipient=admins_group,
         verb='post_save',
         target=instance,
-        description='{0} ({1}) was saved by {2}.'.format(sender.__name__, instance.name, current_user()),
+        description='{0} ({1}) was saved by {2}.'.format(
+            sender.__name__, instance.name, current_user()),
     )
