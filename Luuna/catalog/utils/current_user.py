@@ -1,3 +1,6 @@
+"""Util functions: current_user"""
+
+# Django
 import inspect
 
 

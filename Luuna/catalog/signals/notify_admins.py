@@ -1,11 +1,18 @@
+"""Signals: notify_admins"""
+
+# Django
 from django.dispatch import receiver
 from django.db.models.signals import post_save
+from django.contrib.auth.models import User
+
+# Notifications
 from notifications.signals import notify
 
-from django.contrib.auth.models import User
-from .models import Product
+# Catalog
+from ..models import Product
 
-from .utils import current_user
+# Utils
+from ..utils import current_user
 
 
 @receiver(post_save, sender=Product)
@@ -17,6 +24,5 @@ def notify_admins(sender, instance, **kwargs):
         recipient=admins_group,
         verb='post_save',
         target=instance,
-        description='{0} ({1}) was saved by {2}.'.format(
-            sender.__name__, instance.name, current_user()),
+        description=f'{sender.__name__} ({instance.name}) was saved by {current_user()}.',
     )

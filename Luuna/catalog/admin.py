@@ -1,9 +1,11 @@
-from catalog.models import Product
-from django.contrib import admin
+"""Admin Site."""
 
+# Django
+from django.contrib import admin
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
 
+# Catalog
 from .models import Product
 
 
@@ -18,5 +20,6 @@ class CustomUserAdmin(UserAdmin):
     pass
 
 
-# Register model Product
-admin.site.register(Product)
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_filter = ('name', 'brand')

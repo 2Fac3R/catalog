@@ -30,18 +30,27 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'catalog.apps.CatalogConfig', # /catalog/apps.py
-    'notifications', # django-notifications-hq
-    'rest_framework', # djangorestframework
-    'drf_yasg', # API Documentation
 ]
+
+THIRD_PARTY_APPS = [
+    'notifications',  # django-notifications-hq
+    'rest_framework',  # Django Rest Framework
+    'drf_yasg',  # drf-yasg - Yet another Swagger generator
+    'django_filters',  # Filters: django_filter package
+]
+
+LOCAL_APPS = [
+    'catalog.apps.CatalogConfig',  # /catalog/apps.py
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
