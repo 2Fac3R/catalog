@@ -5,4 +5,5 @@ class CatalogConfig(AppConfig):
     name = 'catalog'
 
     def ready(self):
-        import catalog.signals.notify_admins
+        pass
+        # import catalog.signals.notify_admins
