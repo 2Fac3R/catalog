@@ -23,4 +23,4 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         """Returns the url to access a particular product instance."""
-        return reverse('product-detail', args=[str(self.id)])
+        return reverse('catalog-product-detail', args=[str(self.id)])
