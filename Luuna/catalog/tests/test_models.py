@@ -1,4 +1,9 @@
+"""test_models."""
+
+# Django
 from django.test import TestCase
+
+# Catalog
 from catalog.models import Product
 
 
@@ -40,7 +45,7 @@ class ProductModelTest(TestCase):
         max_length = product._meta.get_field('name').max_length
         self.assertEquals(max_length, 100)
 
-    def test_name_max_digits(self):
+    def test_price_max_digits(self):
         product = Product.objects.get(id=1)
         max_digits = product._meta.get_field('price').max_digits
         self.assertEquals(max_digits, 5)
@@ -52,5 +57,5 @@ class ProductModelTest(TestCase):
 
     def test_get_absolute_url(self):
         product = Product.objects.get(id=1)
-        # This will also fail if the urlconf is not defined.
-        self.assertEquals(product.get_absolute_url(), '/catalog/product/1')
+        # This will fail if the urlconf is not defined.
+        self.assertEquals(product.get_absolute_url(), '/catalog/products/1')

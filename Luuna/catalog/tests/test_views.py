@@ -1,7 +1,11 @@
-from django.test import TestCase
-from catalog.models import Product
+"""test_views."""
 
+# Django
+from django.test import TestCase
 from django.urls import reverse
+
+# Catalog
+from catalog.models import Product
 
 
 class ProductListViewTest(TestCase):
@@ -12,10 +16,10 @@ class ProductListViewTest(TestCase):
         number_of_products = 13
         for product_id in range(number_of_products):
             Product.objects.create(
-                sku='UGG-BB-PUR-{0}'.format(product_id),
-                name='Product {0}'.format(product_id),
-                price='10.{0}'.format(product_id),
-                brand='Brand {0}'.format(product_id)
+                sku=f"UGG-BB-PUR-{product_id}",
+                name=f"Product {product_id}",
+                price=f"10.{product_id}",
+                brand=f"Brand {product_id}"
             )
 
     def test_view_url_exists_at_desired_location(self):
