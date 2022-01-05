@@ -4,11 +4,57 @@ This repository represents my implementation for the [Backend Technical Test](ht
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/)
+Clone this repository
 
-```bash
-pip install -r requirements.txt
-```
+    git clone https://github.com/2Fac3R/zebrands.git
+    cd ZeBrands/Luuna
+
+Create or start your virtual environment [venv](https://docs.python.org/3/library/venv.html)
+
+    python3 -m venv env
+    source env/bin/activate
+
+Install requirements. Use the package manager [pip](https://pip.pypa.io/en/stable/)
+
+    pip install -r requirements.txt
+
+Make migrations and migrate
+
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+
+Create a superuser
+
+    python3 manage.py createsuperuser
+
+Run the server
+
+    python3 manage.py runserver
+
+You can now access the server at http://localhost:8000
+
+## Usage
+
+Log in
+
+    http://localhost:8000/admin
+
+You can access to the following routes
+
+    http://localhost:8000/api/v1/users/
+    http://localhost:8000/api/v1/groups/
+    http://localhost:8000/api/v1/products/
+    http://localhost:8000/catalog/products/
+    http://localhost:8000/catalog/products/1
+
+
+API Documentation routes
+
+    http://localhost:8000/swagger
+    http://localhost:8000/redoc
+
+
+You can also use the Django Rest Framework Browsable API for testing the application.
 
 ## Description
 
