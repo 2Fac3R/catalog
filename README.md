@@ -7,7 +7,6 @@ This repository represents my implementation for the [Backend Technical Test](ht
 Clone this repository
 
     git clone https://github.com/2Fac3R/zebrands.git
-    cd ZeBrands/Luuna
 
 Create or start your virtual environment [venv](https://docs.python.org/3/library/venv.html)
 
