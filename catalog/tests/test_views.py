@@ -23,19 +23,23 @@ class ProductListViewTest(TestCase):
             )
 
     def test_view_url_exists_at_desired_location(self):
+        """Test view url exists at desired location."""
         response = self.client.get('/catalog/products/')
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
+        """Test view url is accessible by name."""
         response = self.client.get(reverse('products'))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template(self):
+        """Test view uses the correct template."""
         response = self.client.get(reverse('products'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'catalog/product_list.html')
 
     def test_pagination_is_ten(self):
+        """Test pagination is exactly ten."""
         response = self.client.get(reverse('products'))
         self.assertEqual(response.status_code, 200)
         self.assertTrue('is_paginated' in response.context)
@@ -43,6 +47,7 @@ class ProductListViewTest(TestCase):
         self.assertEqual(len(response.context['product_list']), 10)
 
     def test_lists_all_products(self):
+        """Test list of all products."""
         # Get second page and confirm it has (exactly) the remaining 3 items
         response = self.client.get(reverse('products')+'?page=2')
         self.assertEqual(response.status_code, 200)
