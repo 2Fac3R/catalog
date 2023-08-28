@@ -1,4 +1,4 @@
-# Luuna
+# Catalog
 
 This repository represents my implementation for the [Backend Technical Test](https://github.com/luuna-tech/test/blob/master/backend/README.md) applied by Zebrands.
 
@@ -6,16 +6,16 @@ This repository represents my implementation for the [Backend Technical Test](ht
 
 Clone this repository
 
-    git clone https://github.com/2Fac3R/zebrands.git
+    git clone https://github.com/2Fac3R/catalog.git
 
 Create or start your virtual environment [venv](https://docs.python.org/3/library/venv.html)
 
-    python3 -m venv env
-    source env/bin/activate
+    python3 -m venv .venv
+    source .venv/bin/activate
 
 Install requirements. Use the package manager [pip](https://pip.pypa.io/en/stable/)
 
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 
 Make migrations and migrate
 
