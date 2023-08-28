@@ -1,13 +1,16 @@
 {% extends "base_generic.html" %}
-
 {% block content %}
-
-<h1>Title: {{ product.name }}</h1>
-
-<p><strong>SKU:</strong> {{ product.sku }}</p>
-<p><strong>Name:</strong> {{ product.name }}</p> 
-<p><strong>Price:</strong> {{ product.price }}</p>  
-<p><strong>Brand:</strong> {{ product.brand }}</p>
-
-{% endblock %}
-
+    <h1>Title: {{ product.name }}</h1>
+    <p>
+        <strong>SKU:</strong> {{ product.sku }}
+    </p>
+    <p>
+        <strong>Name:</strong> {{ product.name }}
+    </p>
+    <p>
+        <strong>Price:</strong> {{ product.price }}
+    </p>
+    <p>
+        <strong>Brand:</strong> {{ product.brand }}
+    </p>
+{% endblock content %}
